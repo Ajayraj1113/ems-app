@@ -1,0 +1,22 @@
+<table class="container table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">City</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each list}}
+      <tr class="table-active">
+        <td scope="row">{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.phone}}</td>
+        <td>{{this.city}}</td>
+        <td ><a href="/emp/final-delete/{{this._id}}" class="btn btn-danger">delete</a></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

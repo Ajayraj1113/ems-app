@@ -41,4 +41,22 @@ router.get("/show-all-emp", async (req, res) => {
   }
 });
 
+router.get("/delete-all-emp", async (req, res) => {
+  try {
+    const result = await Employee.find();
+    res.render("deleteEmp", { list: result });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/final-delete/:userId", async (req, res) => {
+  try {
+    const result = await Employee.findByIdAndDelete(req.params.userId)
+    res.redirect("/emp")
+  } catch (error) {
+    console.log(error)
+  }
+});
+
 module.exports = router;
